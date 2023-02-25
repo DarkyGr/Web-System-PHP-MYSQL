@@ -1,0 +1,172 @@
+/*
+CREATE DATABASE bd_salessys CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE bd_salessys
+*/
+
+CREATE TABLE users (
+  id_user INT AUTO_INCREMENT PRIMARY KEY,
+  document_num VARCHAR(20) NOT NULL,
+  name_u VARCHAR(100) NOT NULL,
+  last_name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  key_u VARCHAR(200) NOT NULL,
+  status_u TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE category (
+  id_category INT AUTO_INCREMENT PRIMARY KEY,
+  name_c VARCHAR(150) NOT NULL,
+  description_c TEXT NOT NULL,
+  status_c TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE subcategory (
+  id_subcategory INT AUTO_INCREMENT PRIMARY KEY,
+  id_category INT NOT NULL,
+  name_sc VARCHAR(150) NOT NULL,  
+  status_sc TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_category) REFERENCES category(id_category)
+  ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE = INNODB;
+
+CREATE TABLE unit_of_measurement(
+  id_uom INT AUTO_INCREMENT PRIMARY KEY,
+  acronym VARCHAR(50) NOT NULL,
+  name_uom VARCHAR(150) NOT NULL,
+  status_uom TINYINT DEFAULT 1,
+  date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE products (
+  id_product INT AUTO_INCREMENT PRIMARY KEY,
+  id_category INT NOT NULL,
+  id_subcategory INT NOT NULL,
+  id_uom INT NOT NULL,
+  barcode VARCHAR(100) COMMENT 'barcode or sku code',
+  name_p VARCHAR(250) NOT NULL,
+  description_p TEXT,  
+  purchase_price DECIMAL(20,2) NOT NULL,
+  sale_price DECIMAL(20,2) NOT NULL,
+  have_taxes TINYINT DEFAULT 1 COMMENT '1 =  has taxes , 0 = no taxes',
+  status_p TINYINT DEFAULT 1,
+  image VARCHAR(250),
+  stock_min INT NOT NULL,
+  stock INT NOT NULL,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_category) REFERENCES category(id_category)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_subcategory) REFERENCES subcategory(id_subcategory)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_uom) REFERENCES unit_of_measurement(id_uom)
+  ON UPDATE CASCADE ON DELETE RESTRICT  
+) ENGINE = INNODB;
+
+CREATE TABLE customers (
+  id_customer INT AUTO_INCREMENT PRIMARY KEY,
+  document_num VARCHAR(20) NOT NULL,
+  business_name VARCHAR(200) NOT NULL,
+  cell_phone VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  address VARCHAR(250) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  status_cust TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE suppliers (
+  id_supplier INT AUTO_INCREMENT PRIMARY KEY,
+  document_num VARCHAR(20) NOT NULL,
+  business_name VARCHAR(200) NOT NULL,
+  representative VARCHAR(200) NOT NULL,
+  cell_phone VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  address VARCHAR(250) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  status_s TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE document_type(
+  id_dt INT AUTO_INCREMENT PRIMARY KEY,
+  name_dt VARCHAR(150) NOT NULL,
+  status_dt TINYINT DEFAULT 1,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
+
+CREATE TABLE sales (
+  id_sale INT AUTO_INCREMENT PRIMARY KEY,
+  id_user INT NOT NULL,
+  id_customer INT NOT NULL,
+  id_dt INT NOT NULL,
+  document_num VARCHAR(20) UNIQUE NOT NULL,  
+  date_s DATE,
+  status_s TINYINT DEFAULT 1,
+  total DECIMAL(20,2) NOT NULL,
+  taxes DECIMAL(20,2) NOT NULL,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_user) REFERENCES users(id_user)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_customer) REFERENCES customers(id_customer)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_dt) REFERENCES document_type(id_dt)
+  ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE = INNODB;
+
+CREATE TABLE sale_details(
+  id_sd INT AUTO_INCREMENT PRIMARY KEY,
+  id_sale INT NOT NULL,
+  id_product INT NOT NULL,
+  sale_price DECIMAL(20,2) NOT NULL,
+  quantity INT NOT NULL,
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale) 
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_product) REFERENCES products(id_product) 
+  ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE = INNODB;
+
+CREATE TABLE purchases(
+  id_purchase INT AUTO_INCREMENT PRIMARY KEY,
+  id_user INT NOT NULL,
+  id_supplier INT NOT NULL,
+  id_dt INT NOT NULL,  
+  document_num VARCHAR(20) UNIQUE NOT NULL,  
+  date_p DATE,
+  status_p TINYINT DEFAULT 1,
+  total DECIMAL(20,2) NOT NULL,
+  taxes DECIMAL(20,2) NOT NULL,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_user) REFERENCES users(id_user)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_supplier) REFERENCES suppliers(id_supplier)
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_dt) REFERENCES document_type(id_dt)
+  ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE = INNODB;
+
+CREATE TABLE purchase_details(
+  id_pd INT AUTO_INCREMENT PRIMARY KEY,
+  id_sale INT NOT NULL,
+  id_product INT NOT NULL,
+  purchase_price DECIMAL(20,2) NOT NULL,
+  quantity INT NOT NULL,
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale) 
+  ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY (id_product) REFERENCES products(id_product) 
+  ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE = INNODB;
+
+CREATE TABLE company (
+	document_num VARCHAR(20) NOT NULL,
+	business_name VARCHAR(250) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	cell_phone VARCHAR(20) NOT NULL,
+	phone VARCHAR(20) NOT NULL,
+	location VARCHAR(200) NOT NULL,
+	taxes DECIMAL(10,2) NOT NULL,
+	logo VARCHAR(200) NOT NULL,
+	created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB;
