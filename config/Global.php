@@ -8,7 +8,6 @@
 
     define("PASSWORD","root");
 
-
     define("DSN","mysql:host=".SERVIDOR.";dbname=".DATABASE);
 
 ?>

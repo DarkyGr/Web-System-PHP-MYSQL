@@ -15,13 +15,8 @@ class Conexion {
         } catch (PDOException $ex){
 
             die($ex->getMessage());
-
+            
         }
-
-
     }
-
-
 }
-
 ?>
