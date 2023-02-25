@@ -1,0 +1,20 @@
+# Assets Sing in
+app-assets/
+
+# Assets Pages
+assets/
+
+# DB
+db/
+
+# Congif
+config/
+
+# Pages
+pages/
+
+# SRC
+src/
+
+# index
+index.php
