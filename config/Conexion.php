@@ -4,9 +4,9 @@ class Conexion {
 
     static function ConectarDB()
     {
-        require_once "Global.php";
-        
         try {            
+
+            require "Global.php";
 
             $cnx = new PDO(DSN,USERNAME,PASSWORD);
 
