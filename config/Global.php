@@ -2,7 +2,7 @@
 
     define("SERVIDOR","localhost");
 
-    define("DATABASE","db_salessys");
+    define("DATABASE","db_sysales");
 
     define("USERNAME","root");
 
