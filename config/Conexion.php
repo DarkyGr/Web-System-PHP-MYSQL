@@ -2,7 +2,7 @@
 
 class Conexion {
 
-    static function ConectarDB()
+    static function ConnectDB()
     {
         try {            
 
