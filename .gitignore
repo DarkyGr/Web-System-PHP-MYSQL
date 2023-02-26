@@ -1,12 +1,18 @@
 # Assets Sing in
-app-assets/
+app-assets/*
+app-assets/css/core
+app-assets/css/pages
+app-assets/css/plugins
+!app-assets/css
 
 # Assets Pages
 assets/
 
 # DB
+!db/
 
 # Config
+!config/
 
 # Pages
 pages/
@@ -15,4 +21,4 @@ pages/
 src/
 
 # index
-index.php
+!index.php
