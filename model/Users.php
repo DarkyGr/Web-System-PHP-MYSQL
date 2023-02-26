@@ -9,6 +9,7 @@ class users {
         $this->cnx = Conexion::ConnectDB();
     }
 
+    // Function for Add user
     function AddUser($document_num, $name, $last_name, $email, $key){
         $query = "INSERT INTO users(document_num, name_u, last_name, email, key_u) VALUES (?, ?, ?, ?, ?)";
         $result = $this->cnx->prepare($query);
@@ -20,6 +21,21 @@ class users {
         $result->bindParam(5, $key_hash);
 
         if ($result->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Function foo Validate user with the emial and password
+    function ValidateUser($email, $key){
+        $query = "SELECT * FROM users WHERE email = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $email);
+        $result->execute();
+        $row = $result->fetch();
+
+        if (password_verify($key, $row["key_u"])) {
             return true;
         }
 
