@@ -1,4 +1,4 @@
-# Assets Sing in
+# App Assets
 app-assets/*
 app-assets/css/core
 app-assets/css/pages
@@ -11,14 +11,18 @@ app-assets/js/scripts
 assets/*
 !assets/js
 
-# DB
-!db/
-
 # Config
 !config/
 
+# Config
+!controller/
+
+# DB
+!db/
+
 # Pages
-pages/
+pages/*
+!pages/welcome.php
 
 # SRC
 src/
