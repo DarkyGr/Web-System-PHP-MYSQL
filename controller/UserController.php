@@ -12,7 +12,7 @@ switch ($_REQUEST["operator"]) {
             if ($user->ValidateUser($_POST["email"], $_POST["key_u"])) {
                 $response = "success";
             }else {
-                $response = "not found";
+                $response = "notfound";
             }
         }else {
             $response = "required";

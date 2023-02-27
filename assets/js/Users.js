@@ -1,6 +1,7 @@
+// Function for Validate user in Login
 function ValidateUser() {
     email = $('#user-email').val();
-    key = $('#user-password').val();
+    key = $('#user-password').val();    
 
     parameters ={
         "email":email, "key_u":key
@@ -14,7 +15,7 @@ function ValidateUser() {
         success:function(response){
             if (response == "success") {
                 location.href="pages/welcome.php";
-            }else if (response == "not found") {
+            }else if (response == "notfound") {
                 msg = '<div class="alert alert-danger mb-2" role="alert"><strong> Ups! </strong>' + 
                 'Credentials are not correct. </div>';
             }else if (response == "required") {
@@ -22,6 +23,13 @@ function ValidateUser() {
                 'Fill in the fields. </div>';
             }
             $('#status_login').html(msg);
+            CleanController();
         }
     });
+}
+
+// Function for Clean Form of Login
+function CleanController() {
+    $("#user-email").val("");
+    $("#user-password").val("");
 }
