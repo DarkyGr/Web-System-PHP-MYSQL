@@ -15,10 +15,13 @@ function ValidateUser() {
             if (response == "success") {
                 location.href="pages/welcome.php";
             }else if (response == "not found") {
-                
-            }else if (respone == "required") {
-                
+                msg = '<div class="alert alert-danger mb-2" role="alert"><strong> Ups! </strong>' + 
+                'Credentials are not correct. </div>';
+            }else if (response == "required") {
+                msg = '<div class="alert alert-danger mb-2" role="alert"><strong> Ups! </strong>' + 
+                'Fill in the fields. </div>';
             }
+            $('#status_login').html(msg);
         }
     });
 }

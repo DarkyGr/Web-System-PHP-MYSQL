@@ -62,12 +62,14 @@
                             </form>
                         </div>
                     </div>
+                    <div id="status_login" class="card-footer">
+                    </div>
                     <div class="card-footer">
                         <div class="">
                             <p class="float-sm-left text-xs-center m-0"><a href="" class="card-link">Recover password</a></p>
                             <p class="float-sm-right text-xs-center m-0">New user? <a href="" class="card-link">Sign Up</a></p>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
