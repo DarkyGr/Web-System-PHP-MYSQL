@@ -38,7 +38,7 @@
                         <div class="card-block">
                             <form class="form-horizontal form-simple" >
                                 <fieldset class="form-group position-relative has-icon-left mb-0">
-                                    <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Email">
+                                    <input type="text" class="form-control form-control-lg input-lg" id="user-email" placeholder="Email">
                                     <div class="form-control-position">
                                         <i class="icon-head"></i>
                                     </div>
@@ -56,16 +56,16 @@
                                             <label for="remember-me"> Remember Me</label>
                                         </fieldset>
                                     </div>
-                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="" class="card-link">Forgot password?</a></div>
+                                    <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a class="card-link">Forgot password?</a></div>
                                 </fieldset>
-                                <button type="button" class="btn btn-primary btn-lg btn-block"><a href="pages/welcome" style="color:white;"><i class="icon-unlock2"></i> Sing in</a></button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="ValidateUser();"><a href="#" style="color:white;"><i class="icon-unlock2"></i> Sing in</a></button>
                             </form>
                         </div>
                     </div>
                     <div class="card-footer">
                         <div class="">
                             <p class="float-sm-left text-xs-center m-0"><a href="" class="card-link">Recover password</a></p>
-                            <p class="float-sm-right text-xs-center m-0">New to Robust? <a href="" class="card-link">Sign Up</a></p>
+                            <p class="float-sm-right text-xs-center m-0">New user? <a href="" class="card-link">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
@@ -74,5 +74,7 @@
       </div>
     </div>
 
+    <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/Users.js" type="text/javascript"></script>
   </body>
 </html>

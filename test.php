@@ -1,6 +1,6 @@
 <?php
 
-require "model/Users.php";
+require "../model/Users.php";
 
 $user = new Users();
 

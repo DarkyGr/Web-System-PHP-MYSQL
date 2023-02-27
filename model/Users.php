@@ -1,6 +1,6 @@
 <?php
 
-require "config/Conexion.php";
+require "../config/Conexion.php";
 
 class users {
     public $cnx;
