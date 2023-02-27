@@ -21,8 +21,7 @@ assets/*
 !db/
 
 # Pages
-pages/*
-!pages/welcome.php
+!pages/*
 
 # SRC
 src/
