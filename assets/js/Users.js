@@ -10,7 +10,7 @@ function ValidateUser() {
     $.ajax({
         data:parameters,
         type:'POST',
-        url:'controller/UserController.php?operator=log_in',
+        url:'controller/UserController.php?operator=sing_in',
         beforeSend:function(){},
         success:function(response){
             if (response == "success") {

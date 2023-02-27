@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if (isset($_SESSION["user"])) {
+    header("location:pages/welcome.php");
+}else {    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,3 +88,7 @@
     <script src="assets/js/Users.js" type="text/javascript"></script>
   </body>
 </html>
+
+<?php 
+}
+?>

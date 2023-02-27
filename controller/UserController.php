@@ -7,7 +7,7 @@ $use = new Users();
 
 switch ($_REQUEST["operator"]) {
 
-    case "log_in":
+    case "sing_in":
         if (isset($_POST["email"], $_POST["key_u"]) && !empty($_POST["email"]) && !empty($_POST["key_u"])) {
             
             if ($user = $use->ValidateUser($_POST["email"], $_POST["key_u"])) {
@@ -25,7 +25,7 @@ switch ($_REQUEST["operator"]) {
         echo $response;
         break;
 
-        case "log_out":
+        case "sing_out":
             unset($_SESSION["user"]);
             header("location:../");
             break;
