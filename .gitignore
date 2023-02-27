@@ -6,7 +6,8 @@ app-assets/css/plugins
 !app-assets/css
 
 # Assets Pages
-assets/
+assets/*
+!assets/js
 
 # DB
 !db/
