@@ -1,5 +1,8 @@
 <!-- ============== | head | =================-->
-<?php  include "layouts/head.php";     ?>
+<?php  
+session_start();    // Save the session
+
+include "layouts/head.php";     ?>
 <!--==========================================-->
 
 
@@ -9,7 +12,9 @@
         <div class="content-header row">
         </div>
         <div class="content-body">
-
+        <?php if (isset($_SESSION["user"])) {
+            echo $_SESSION["user"]["name_u"].' '.$_SESSION["user"]["last_name"];
+        }?>     
         </div>
     </div>
 </div>

@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a class="card-link">Forgot password?</a></div>
                                 </fieldset>
-                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="ValidateUser();"><a href="#" style="color:white;"><i class="icon-unlock2"></i> Sing in</a></button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="ValidateUser();"><i class="icon-unlock2"></i> Sing in</button>
                             </form>
                         </div>
                     </div>

@@ -1,15 +1,19 @@
 <?php
+session_start();    // Save the session of the user
 
 require "../model/Users.php";
 
-$user = new Users();
+$use = new Users();
 
 switch ($_REQUEST["operator"]) {
 
     case "validate_user":
         if (isset($_POST["email"], $_POST["key_u"]) && !empty($_POST["email"]) && !empty($_POST["key_u"])) {
             
-            if ($user->ValidateUser($_POST["email"], $_POST["key_u"])) {
+            if ($user = $use->ValidateUser($_POST["email"], $_POST["key_u"])) {
+                foreach ($user as $fields => $value) {
+                    $_SESSION["user"][$fields] = $value;
+                }
                 $response = "success";
             }else {
                 $response = "notfound";

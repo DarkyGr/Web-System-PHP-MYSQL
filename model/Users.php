@@ -36,7 +36,7 @@ class users {
         $row = $result->fetch();
 
         if (password_verify($key, $row["key_u"])) {
-            return true;
+            return $row;
         }
 
         return false;
