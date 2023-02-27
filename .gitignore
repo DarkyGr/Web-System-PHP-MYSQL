@@ -4,6 +4,8 @@ app-assets/css/core
 app-assets/css/pages
 app-assets/css/plugins
 !app-assets/css
+app-assets/js/scripts
+!app-assets/js
 
 # Assets Pages
 assets/*
