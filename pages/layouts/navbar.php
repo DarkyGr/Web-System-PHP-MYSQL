@@ -19,7 +19,7 @@
               <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name">
                 <?php echo $_SESSION["user"]["name_u"].' '.$_SESSION["user"]["last_name"]; ?></span></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item"><i class="icon-head"></i> Editar perfil</a>                  
+                    <a href="#" class="dropdown-item"><i class="icon-head"></i> Edit profile</a>                  
                   <form action="../controller/UserController.php?operator=sing_out" method="POST">
                     <button type="submit" class="dropdown-item"><i class="icon-power3"></i>Log out</button>
                   </form>

@@ -7,14 +7,14 @@
 	<div class="content-wrapper">
 		<div class="content-header row">
 			<div class="content-header-left col-md-6 col-xs-12 mb-1">
-				<h2 class="content-header-title">Categorias</h2>
+				<h2 class="content-header-title">Categories</h2>
 			</div>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="../main">Dashboard</a></li>
-						<li class="breadcrumb-item"><a >Productos</a></li>
-						<li class="breadcrumb-item active"><a href="#">Categorias</a></li>
+						<li class="breadcrumb-item"><a >Products</a></li>
+						<li class="breadcrumb-item active"><a href="#">Categories</a></li>
 					</ol>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title" id="basic-layout-form"><button class="btn btn-sm btn-success">Nueva categoria</button></h4>
+								<h4 class="card-title" id="basic-layout-form"><button class="btn btn-sm btn-success">New category</button></h4>
 								<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 								<div class="heading-elements">
 									<ul class="list-inline mb-0">
@@ -41,9 +41,9 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Nombre</th>
-													<th>Descripcion</th>
-													<th>Estado</th>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Status</th>
 													<th>#</th>
 												</tr>
 											</thead>
@@ -52,9 +52,9 @@
 											<tfoot>
 												<tr>
 													<th>#</th>
-													<th>Nombre</th>
-													<th>Descripcion</th>
-													<th>Estado</th>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Status</th>
 													<th>#</th>
 												</tr>
 											</tfoot>
