@@ -1,7 +1,7 @@
 /*
-CREATE DATABASE bd_salessys CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE db_salessys CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE bd_salessys
+USE db_salessys;
 */
 
 CREATE TABLE users (
