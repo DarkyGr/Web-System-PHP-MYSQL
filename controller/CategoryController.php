@@ -16,8 +16,8 @@ switch ($_REQUEST["operator"]) {
                                     <i class="icon-gear"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item"><i class="icon-edit"></i>Edit</a>
-                                    <a class="dropdown-item"><i class="icon-trash"></i>Delete</a>
+                                    <a class="dropdown-item"><i class="icon-edit"></i> Edit</a>
+                                    <a class="dropdown-item"><i class="icon-trash"></i> Delete</a>
                                 </div>
                             </div>',
                     "id" => $data[$i]['id_category'],
