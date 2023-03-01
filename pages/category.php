@@ -1,8 +1,12 @@
 <!-- ============== | head | =================-->
-<?php  include "layouts/head.php";     ?>
+<?php  
+session_start();
+if (isset($_SESSION["user"])) {
+	# code...
+include "layouts/head.php";     ?>
 <!--==========================================-->
 
-<!-- =========== | contenido | ===============-->
+<!-- =========== | body | ===============-->
 <div class="app-content content container-fluid">
 	<div class="content-wrapper">
 		<div class="content-header row">
@@ -71,12 +75,13 @@
 </div>
 <!--==========================================-->
 
-<!--==========================================-->
-
 <!-- ========= | scripts robust | ============-->
 <?php  include "layouts/main_scripts.php"; ?>
 <!--==========================================-->
 
 <!-- ============= | footer | ================-->
-<?php  include "layouts/footer.php";      ?>
+<?php  include "layouts/footer.php";      
+}else {
+	header("location:../");
+}?>
 <!--==========================================-->
