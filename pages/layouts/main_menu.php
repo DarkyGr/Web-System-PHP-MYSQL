@@ -38,7 +38,7 @@
             <ul class="menu-content">
               <li><a href="#" class="menu-item">New product</a></li>
               <li><a href="#" class="menu-item">List products</a></li>
-              <li><a href="#" class="menu-item">Categories</a></li>
+              <li><a href="../pages/category.php" class="menu-item">Categories</a></li>
               <li><a href="#" class="menu-item">Subcategories</a></li>
               <li><a href="#" class="menu-item">Unit of measurement</a></li>
             </ul>

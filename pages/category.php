@@ -16,9 +16,9 @@ include "layouts/head.php";     ?>
 			<div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
 				<div class="breadcrumb-wrapper col-xs-12">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="../main">Dashboard</a></li>
-						<li class="breadcrumb-item"><a >Products</a></li>
-						<li class="breadcrumb-item active"><a href="#">Categories</a></li>
+						<li class="breadcrumb-item"><a href="../pages/welcome.php">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="">Products</a></li>
+						<li class="breadcrumb-item active"><a href="">Categories</a></li>
 					</ol>
 				</div>
 			</div>
@@ -41,25 +41,25 @@ include "layouts/head.php";     ?>
 							<div class="card-body collapse in">
 								<div class="card-block">
 									<div class="table-responsive">
-										<table class="table table-bordered table-sm">
+										<table id="table_category" class="table table-bordered table-sm">
 											<thead>
 												<tr>
-													<th>#</th>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Status</th>
-													<th>#</th>
+													<th width="5%">Actions</th>
+													<th width="5%">ID</th>
+													<th width="30%">Name</th>
+													<th width="50%">Description</th>
+													<th width="10%">Status</th>
 												</tr>
 											</thead>
 											<tbody>
 											</tbody>
 											<tfoot>
 												<tr>
-													<th>#</th>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Status</th>
-													<th>#</th>
+													<th width="5%">Actions</th>
+													<th width="5%">ID</th>
+													<th width="30%">Name</th>
+													<th width="50%">Description</th>
+													<th width="10%">Status</th>
 												</tr>
 											</tfoot>
 										</table>
@@ -77,6 +77,12 @@ include "layouts/head.php";     ?>
 
 <!-- ========= | scripts robust | ============-->
 <?php  include "layouts/main_scripts.php"; ?>
+<!--==========================================-->
+
+<!-- ========= | custom scripts | ============-->
+<script src="../app-assets/plugins/DataTables/datatables.min.js"></script>
+<script src="../app-assets/plugins/DataTables/js/dataTables.bootstrap4.min.js"></script>
+<script src="../assets/js/Category.js"></script>
 <!--==========================================-->
 
 <!-- ============= | footer | ================-->
