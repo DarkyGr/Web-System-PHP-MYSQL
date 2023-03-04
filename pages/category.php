@@ -91,8 +91,8 @@ include "layouts/head.php";     ?>
 
 			</div>
 			<div class="modal-footer">
-			<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Cancel</button>
-			<button type="button" class="btn btn-outline-prymary">Save</button>
+				<button type="button" class="btn red btn-outline-danger" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn green btn-outline-success">Save</button>
 			</div>
 		</div>
 	</div>
