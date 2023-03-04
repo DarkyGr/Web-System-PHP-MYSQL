@@ -29,7 +29,9 @@ include "layouts/head.php";     ?>
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title" id="basic-layout-form"><button class="btn btn-sm btn-success">New category</button></h4>
+								<h4 class="card-title" id="basic-layout-form">
+									<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#create_category">New category</button>
+								</h4>
 								<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 								<div class="heading-elements">
 									<ul class="list-inline mb-0">
@@ -70,6 +72,28 @@ include "layouts/head.php";     ?>
 					</div>
 				</div>
 			</section>
+		</div>
+	</div>
+</div>
+<!--==========================================-->
+
+<!-- ========= | modal | ============-->
+<div class="modal fade text-xs-left" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel2"><i class="icon-road2"></i> New category</h4>
+			</div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-outline-prymary">Save</button>
+			</div>
 		</div>
 	</div>
 </div>
