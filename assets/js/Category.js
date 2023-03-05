@@ -43,7 +43,7 @@ function SaveCategory() {
                 table.ajax.reload();
                 CleanController();
                 $('#create_category').modal('hide');
-                toastr.success("The category has been added successfully", "Successfully created");
+                toastr.success("The category has been added successfully", "successfully created category");
             }else if (response == "required") {
                 toastr.warning("Fill in the fields", "Required");
             }else{
