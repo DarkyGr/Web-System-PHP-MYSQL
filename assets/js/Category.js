@@ -39,7 +39,22 @@ function SaveCategory() {
         type:'POST',
         beforeSend:function(){},
         success:function(response){
-            console.log(response);
+            if (response == "success") {
+                table.ajax.reload();
+                CleanController();
+                $('#create_category').modal('hide');
+                toastr.success("The category has been added successfully", "Successfully created");
+            }else if (response == "required") {
+                toastr.warning("Fill in the fields", "Required");
+            }else{
+                toastr.danger("Please, refresh the page and fill in the fields", "Error");
+            }
         }
     });    
+}
+
+// Function for Clean Form of Login
+function CleanController() {
+    $("#category-name").val("");
+    $("#category-description").val("");
 }

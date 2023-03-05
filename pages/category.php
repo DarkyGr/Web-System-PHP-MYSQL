@@ -88,6 +88,7 @@ include "layouts/head.php";     ?>
 <!-- ========= | custom scripts | ============-->
 <script src="../app-assets/plugins/DataTables/datatables.min.js"></script>
 <script src="../app-assets/plugins/DataTables/js/dataTables.bootstrap4.min.js"></script>
+<script src="../app-assets/plugins/Toastr/toastr.min.css"></script>
 <script src="../assets/js/Category.js"></script>
 <!--==========================================-->
 

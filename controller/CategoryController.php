@@ -38,7 +38,6 @@ switch ($_REQUEST["operator"]) {
         }
 
         echo json_encode($results);
-
     break;
 
     case "new_category":
@@ -54,8 +53,8 @@ switch ($_REQUEST["operator"]) {
         }else {
             $response = "required";
         }
+        
         echo $response;
-
     break;
 }
 
