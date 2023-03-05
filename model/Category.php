@@ -25,6 +25,20 @@ class Category{
 
         return false;
     }
+
+    // Function for Create category
+    function NewCategory($name, $description){
+        $query = "INSERT INTO category(name_c, description_c) VALUES (?, ?)";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $name);
+        $result->bindParam(2, $description);
+
+        if ($result->execute()) {
+            return true;
+        }
+        
+        return false;
+    }
 }
 
 ?>

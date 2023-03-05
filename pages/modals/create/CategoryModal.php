@@ -26,7 +26,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn red btn-outline-danger" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn green btn-outline-success">Save</button>
+				<button type="button" class="btn green btn-outline-success" onclick="SaveCategory();">Save</button>
 			</div>
 		</div>
 	</div>

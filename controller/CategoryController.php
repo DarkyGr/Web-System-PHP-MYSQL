@@ -5,7 +5,8 @@ require "../model/Category.php";
 $cat = new Category();
 
 switch ($_REQUEST["operator"]) {
-    case 'list_categories':
+
+    case "list_categories":
         $data = $cat->GetListCategories();
 
         if ($data) {
@@ -38,7 +39,24 @@ switch ($_REQUEST["operator"]) {
 
         echo json_encode($results);
 
-        break;
+    break;
+
+    case "new_category":
+        if (isset($_POST["name_c"], $_POST["description_c"]) && !empty($_POST["name_c"]) && !empty($_POST["description_c"])) {
+            $name = $_POST["name_c"];
+            $description = $_POST["description_c"];
+            
+            if ($cat->NewCategory($name, $description)) {
+                $response = "success";
+            }else {
+                $response = "error";
+            }
+        }else {
+            $response = "required";
+        }
+        echo $response;
+
+    break;
 }
 
 ?>

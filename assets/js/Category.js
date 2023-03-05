@@ -7,6 +7,7 @@ function init() {
     FillTableCategories();
 }
 
+// Function for Get List categories
 function FillTableCategories() {
     table = $('#table_category').DataTable({
         pageLength: 10,
@@ -21,4 +22,24 @@ function FillTableCategories() {
             { data : 'status'},
         ]
     });
+}
+
+// Function for new category
+function SaveCategory() {
+    cName = $('#category_name').val();
+    cDescription = $('#category_description').val();
+
+    parameters = {
+        "name_c":cName, "description_c":cDescription
+    }
+
+    $.ajax({
+        data:parameters,
+        url:'../controller/CategoryController.php?operator=new_category',
+        type:'POST',
+        beforeSend:function(){},
+        success:function(response){
+            console.log(response);
+        }
+    });    
 }
