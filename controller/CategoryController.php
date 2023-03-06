@@ -23,7 +23,7 @@ switch ($_REQUEST["operator"]) {
                                         <i class="icon-edit"></i> Edit</a>
                                         <a class="dropdown-item" 
                                         onclick="GetCategoryById('.$data[$i]['id_category'].",'disable'".');">
-                                        <i class="icon-trash"></i> Disable</a>
+                                        <i class="icon-cross"></i> Disable</a>
                                     </div>
                                 </div>'
                             :'<div class="btn-group">
