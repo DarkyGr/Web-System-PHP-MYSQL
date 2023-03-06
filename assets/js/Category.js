@@ -7,7 +7,7 @@ function init() {
     FillTableCategories();
 }
 
-// Function for Get List categories
+// Function to Get List categories
 function FillTableCategories() {
     table = $('#table_category').DataTable({
         pageLength: 10,
@@ -24,7 +24,7 @@ function FillTableCategories() {
     });
 }
 
-// Function for new category
+// Function to new category
 function NewCategory() {
     cName = $('#category_name').val();
     cDescription = $('#category_description').val();
@@ -53,14 +53,14 @@ function NewCategory() {
     });    
 }
 
-// Function for Clean Form of Login
+// Function to Clean Form of Login
 function CleanController() {
     $("#category-name").val("");
     $("#category-description").val("");
 }
 
-// Function for Get Category by ID
-function GetCategoryById(id_category) {
+// Function to Get Category by ID
+function GetCategoryById(id_category, op) {
     $.ajax({
         data: { "id_category" : id_category},
         url:'../controller/CategoryController.php?operator=get_category_by_id',
@@ -69,15 +69,20 @@ function GetCategoryById(id_category) {
         success:function(response){            
             data = $.parseJSON(response);
 
-            if (data.length > 0) {
+            if (op == "edit") {
                 $('#edit_category_id').val(data[0]['id']);
                 $('#edit_category_name').val(data[0]['name']);
                 $('#edit_category_description').val(data[0]['description']);
+            }else if (op == "disable") {                
+                AlertDisableCategory(data[0]['id'], data[0]['name']);
+            }else if (op == "enable") {
+                AlertEnableCategory(data[0]['id'], data[0]['name']);
             }
         }
     });    
 }
 
+// Function to save the changes of editing a category
 function UpdateCategory() {    
     idCategory = $('#edit_category_id').val();
     cName = $('#edit_category_name').val();
@@ -106,22 +111,80 @@ function UpdateCategory() {
     });  
 }
 
-function test() {
+// Function to Disable category
+function DisableCategory(id_category, category_name) {
+    $.ajax({
+        data: {"id_category" : id_category},
+        url: '../controller/CategoryController.php?operator=disable_category',
+        type:'POST',
+        beforeSend:function(){},
+        success:function(response){            
+            if (response == "success") {
+                table.ajax.reload();
+                Swal.fire({
+                    title: 'Disabled!',
+                    html: "The category: <h5>" + category_name + "</h5> has been disabled.",
+                    icon: 'success'
+                });
+            }else{
+                toastr.danger("Please, contact admin", "Error");
+            }
+        }
+    });
+}
+
+// Function to Alert Disable category
+function AlertDisableCategory(id_category, category_name) {
     Swal.fire({
         title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        html: "Do you want to disable the category: <h5>" + category_name + "?</h5>",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+        confirmButtonText: 'Yes, disable it!'
+    }).then((result) => {
+        if (result.value) {
+            DisableCategory(id_category, category_name);
         }
-      })
+    })
+}
+
+// Function to Enable category
+function EnableCategory(id_category, category_name) {
+    $.ajax({
+        data: {"id_category" : id_category},
+        url: '../controller/CategoryController.php?operator=enable_category',
+        type:'POST',
+        beforeSend:function(){},
+        success:function(response){            
+            if (response == "success") {
+                table.ajax.reload();
+                Swal.fire({
+                    title: 'Enabled!',
+                    html: "The category: <h5>" + category_name + "</h5> has been enabled.",
+                    icon: 'success'
+                });
+            }else{
+                toastr.danger("Please, contact admin", "Error");
+            }
+        }
+    });
+}
+
+// Function to Alert Enable category
+function AlertEnableCategory(id_category, category_name) {
+    Swal.fire({
+        title: 'Are you sure?',
+        html: "Do you want to enable the category: <h5>" + category_name + "?</h5>",
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, enable it!'
+    }).then((result) => {
+        if (result.value) {
+            EnableCategory(id_category, category_name);
+        }
+    })
 }

@@ -9,7 +9,7 @@ class Category{
         $this->cnx = Conexion::ConnectDB();
     }
 
-    // Function for Get the list of categories
+    // Function to Get the list of categories
     function GetListCategories(){
         $query = "SELECT * FROM category";
         $result = $this->cnx->prepare($query);
@@ -26,7 +26,7 @@ class Category{
         return false;
     }
 
-    // Function for Create category
+    // Function to Create category
     function NewCategory($name, $description){
         $query = "INSERT INTO category(name_c, description_c) VALUES (?, ?)";
         $result = $this->cnx->prepare($query);
@@ -40,7 +40,7 @@ class Category{
         return false;
     }
 
-    // Function for Edit category
+    // Function to Edit category
     function GetCategoryById($id_category){
         $query = "SELECT * FROM category where id_category = ?";
         $result = $this->cnx->prepare($query);
@@ -53,13 +53,39 @@ class Category{
         return false;
     }
 
-    // Function for Update Category
+    // Function to Update Category
     function UpdateCategory($id_category, $name, $description){
         $query = "UPDATE category SET name_c = ?, description_c = ? WHERE id_category = ?";
         $result = $this->cnx->prepare($query);
         $result->bindParam(1, $name);
         $result->bindParam(2, $description);
         $result->bindParam(3, $id_category);
+
+        if ($result->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Function to logically remove a category
+    function DisableCategory($id_category){
+        $query = "UPDATE category SET status_c = 0 WHERE id_category = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_category);
+
+        if ($result->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Function to Enable category
+    function EnableCategory($id_category){
+        $query = "UPDATE category SET status_c = 1 WHERE id_category = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_category);
 
         if ($result->execute()) {
             return true;

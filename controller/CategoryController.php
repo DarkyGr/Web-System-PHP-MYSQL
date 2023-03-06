@@ -19,8 +19,11 @@ switch ($_REQUEST["operator"]) {
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" data-toggle="modal" data-target="#edit_category" 
-                                        onclick="GetCategoryById('.$data[$i]['id_category'].');"><i class="icon-edit"></i> Edit</a>
-                                        <a class="dropdown-item" onclick="test();"><i class="icon-trash"></i> Delete</a>
+                                        onclick="GetCategoryById('.$data[$i]['id_category'].",'edit'".');">
+                                        <i class="icon-edit"></i> Edit</a>
+                                        <a class="dropdown-item" 
+                                        onclick="GetCategoryById('.$data[$i]['id_category'].",'disable'".');">
+                                        <i class="icon-trash"></i> Disable</a>
                                     </div>
                                 </div>'
                             :'<div class="btn-group">
@@ -28,14 +31,16 @@ switch ($_REQUEST["operator"]) {
                                     <i class="icon-gear"></i>
                                 </button>
                                 <div class="dropdown-menu">                                   
-                                    <a class="dropdown-item"><i class="icon-check"></i> Active</a>
+                                    <a class="dropdown-item" 
+                                    onclick="GetCategoryById('.$data[$i]['id_category'].",'enable'".');">
+                                    <i class="icon-check"></i> Enable</a>
                                 </div>
                             </div>',
                     "id" => $data[$i]['id_category'],
                     "name" => $data[$i]['name_c'],
                     "description" => $data[$i]['description_c'],
-                    "status" => ($data[$i]['status_c'] == 1)?'<div class="tag tag-success">Active</div>':
-                        '<div class="tag tag-danger">Inactive</div>'
+                    "status" => ($data[$i]['status_c'] == 1)?'<div class="tag tag-success">Enabled</div>':
+                        '<div class="tag tag-danger">Disabled</div>'
                 );
             }
 
@@ -99,6 +104,34 @@ switch ($_REQUEST["operator"]) {
             $response = "required";
         }
         
+        echo $response;
+    break;
+
+    case "disable_category":
+        if (isset($_POST["id_category"]) && !empty($_POST["id_category"])) {
+            if ($cat->DisableCategory($_POST["id_category"])) {
+                $response = "success";
+            }else {
+                $response = "error";
+            }
+        }else {
+            $response = "error";
+        }
+
+        echo $response;
+    break;
+
+    case "enable_category":
+        if (isset($_POST["id_category"]) && !empty($_POST["id_category"])) {
+            if ($cat->EnableCategory($_POST["id_category"])) {
+                $response = "success";
+            }else {
+                $response = "error";
+            }
+        }else {
+            $response = "error";
+        }
+
         echo $response;
     break;
 }

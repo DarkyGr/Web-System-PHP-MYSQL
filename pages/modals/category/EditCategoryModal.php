@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> Description </label>
+                    <label> Description: </label>
                     <div class="position-relative has-icon-left">
                         <textarea type="text" rows="7" placeholder="Type a short description" class="form-control" id="edit_category_description"></textarea>
                         <div class="form-control-position"><i class="icon-file2"></i></div>
