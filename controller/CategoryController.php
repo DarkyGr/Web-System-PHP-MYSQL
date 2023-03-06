@@ -20,7 +20,7 @@ switch ($_REQUEST["operator"]) {
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" data-toggle="modal" data-target="#edit_category" 
                                         onclick="GetCategoryById('.$data[$i]['id_category'].');"><i class="icon-edit"></i> Edit</a>
-                                        <a class="dropdown-item"><i class="icon-trash"></i> Delete</a>
+                                        <a class="dropdown-item" onclick="test();"><i class="icon-trash"></i> Delete</a>
                                     </div>
                                 </div>'
                             :'<div class="btn-group">

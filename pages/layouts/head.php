@@ -37,8 +37,9 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <!-- END Custom CSS-->
-    <link rel="stylesheet" href="../app-assets/plugins/DataTables/css/dataTables.bootstrap4.min">
-    <link rel="stylesheet" href="../app-assets/plugins/Toastr/toastr.min.css">
+    <link rel="stylesheet" href="../app-assets/plugins/DataTables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../app-assets/plugins/Toastr/toastr.min.css">    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
   
