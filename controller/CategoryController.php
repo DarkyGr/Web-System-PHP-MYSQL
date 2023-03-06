@@ -12,14 +12,23 @@ switch ($_REQUEST["operator"]) {
         if ($data) {
             for ($i=0; $i < count($data); $i++) { 
                 $list[] = array(
-                    "ac" => '<div class="btn-group">
+                    "ac" => ($data)[$i]['status_c'] == 1 ? 
+                                '<div class="btn-group">
+                                    <button class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <i class="icon-gear"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#edit_category" 
+                                        onclick="GetCategoryById('.$data[$i]['id_category'].');"><i class="icon-edit"></i> Edit</a>
+                                        <a class="dropdown-item"><i class="icon-trash"></i> Delete</a>
+                                    </div>
+                                </div>'
+                            :'<div class="btn-group">
                                 <button class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <i class="icon-gear"></i>
                                 </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#edit_category" 
-                                    onclick="GetCategoryById('.$data[$i]['id_category'].');"><i class="icon-edit"></i> Edit</a>
-                                    <a class="dropdown-item"><i class="icon-trash"></i> Delete</a>
+                                <div class="dropdown-menu">                                   
+                                    <a class="dropdown-item"><i class="icon-check"></i> Active</a>
                                 </div>
                             </div>',
                     "id" => $data[$i]['id_category'],
