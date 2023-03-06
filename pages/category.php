@@ -78,7 +78,8 @@ include "layouts/head.php";     ?>
 <!--==========================================-->
 
 <!-- ========= | modals | ============-->
-<?php include 'modals/create/CategoryModal.php' ?>
+<?php include 'modals/category/EditCategoryModal.php';
+	include 'modals/category/CreateCategoryModal.php'; ?>
 <!--==========================================-->
 
 <!-- ========= | scripts robust | ============-->

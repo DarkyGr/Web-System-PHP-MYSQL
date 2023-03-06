@@ -39,6 +39,34 @@ class Category{
         
         return false;
     }
+
+    // Function for Edit category
+    function GetCategoryById($id_category){
+        $query = "SELECT * FROM category where id_category = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_category);
+
+        if ($result->execute()) {
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return false;
+    }
+
+    // Function for Update Category
+    function UpdateCategory($id_category, $name, $description){
+        $query = "UPDATE category SET name_c = ?, description_c = ? WHERE id_category = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $name);
+        $result->bindParam(2, $description);
+        $result->bindParam(3, $id_category);
+
+        if ($result->execute()) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 ?>
