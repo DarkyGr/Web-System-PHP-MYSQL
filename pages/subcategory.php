@@ -30,7 +30,7 @@ include "layouts/head.php";     ?>
 						<div class="card">
 							<div class="card-header">
 								<h4 class="card-title" id="basic-layout-form">
-									<button class="btn btn-sm btn-success" data-toggle="modal" data-target="#create_subcategory">New subcategory</button>
+									<button class="btn btn-sm btn-success" id="btn_new_subcategory" data-toggle="modal" data-target="#create_subcategory">New subcategory</button>
 								</h4>
 								<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 								<div class="heading-elements">

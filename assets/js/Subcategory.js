@@ -4,9 +4,12 @@ init();
 
 // Function executed at startup
 function init() {
-    FillTableSubcategories();
-    GetListCategoriesSelect()
+    FillTableSubcategories();    
 }
+
+$('#btn_new_subcategory').on("click", function() {
+    GetListCategoriesSelect();
+});
 
 // Function to Get List subcategories
 function FillTableSubcategories() {
