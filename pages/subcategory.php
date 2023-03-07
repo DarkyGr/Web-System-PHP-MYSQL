@@ -78,7 +78,7 @@ include "layouts/head.php";     ?>
 <!--==========================================-->
 
 <!-- ========= | modals | ============-->
-
+<?php  include "modals/subcategory/CreateSubcategoryModal.php"; ?>
 <!--==========================================-->
 
 <!-- ========= | scripts robust | ============-->
