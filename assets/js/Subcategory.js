@@ -33,7 +33,11 @@ function GetListCategoriesSelect() {
         success:function(response){
             data = $.parseJSON(response);
             if (data.length > 0) {
-                console.log(data);
+                select = "<option>SELECT A CATEGORY...</option>";
+                $.each(data, function(key, value){
+                    select = select + "<option value=" + value[0] +">" + value[1] + "</option>"
+                })
+                $('#corresponding_category').html(select);
             }
         }
     });  

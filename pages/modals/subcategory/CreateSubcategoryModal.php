@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="subcategory_description"> Category: </label>
                     <div class="position-relative has-icon-left">
-                        <select class="form-control">
+                        <select id="corresponding_category" class="form-control">
 							<div class="form-control-position"><i class="icon-bag"></i></div>
 						</select>
                     </div>
