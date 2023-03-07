@@ -53,7 +53,7 @@ switch ($_REQUEST["operator"]) {
         }
 
         echo json_encode($results);
-    break;
+    break;    
 
     /* 
     case "get_subcategory_by_id":

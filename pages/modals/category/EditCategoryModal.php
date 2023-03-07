@@ -11,14 +11,14 @@
 			<div class="modal-body">
 				<input type="hidden" id="edit_category_id">
                 <div class="form-group">
-                    <label> Category name: </label>
+                    <label for="edit_category_name"> Category name: </label>
                     <div class="position-relative has-icon-left">
                         <input type="text" placeholder="Type the name of the category" class="form-control" id="edit_category_name" autofocus>
                         <div class="form-control-position"><i class="icon-bag"></i></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> Description: </label>
+                    <label for="edit_category_description"> Description: </label>
                     <div class="position-relative has-icon-left">
                         <textarea type="text" rows="7" placeholder="Type a short description" class="form-control" id="edit_category_description"></textarea>
                         <div class="form-control-position"><i class="icon-file2"></i></div>

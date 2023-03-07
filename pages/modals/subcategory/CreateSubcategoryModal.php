@@ -1,5 +1,5 @@
 <!-- ========= | modal | ============-->
-<div class="modal fade text-xs-left" id="create_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="create_subcategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -10,17 +10,18 @@
 			</div>
 			<div class="modal-body">
                 <div class="form-group">
-                    <label> Subcategory name: </label>
+                    <label for="subcategory_name"> Subcategory name: </label>
                     <div class="position-relative has-icon-left">
-                        <input type="text" placeholder="Type the name of the category" class="form-control" id="subcategory_name" autofocus>
+                        <input type="text" placeholder="Type the name of the subcategory" class="form-control" id="subcategory_name" autofocus>
                         <div class="form-control-position"><i class="icon-bag"></i></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label> Description: </label>
+                    <label for="subcategory_description"> Category: </label>
                     <div class="position-relative has-icon-left">
-                        <textarea type="text" rows="7" placeholder="Type a short description" class="form-control" id="subcategory_description"></textarea>
-                        <div class="form-control-position"><i class="icon-file2"></i></div>
+                        <select class="form-control">
+							<div class="form-control-position"><i class="icon-bag"></i></div>
+						</select>
                     </div>
                 </div>
 			</div>
