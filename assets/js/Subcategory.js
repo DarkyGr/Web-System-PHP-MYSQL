@@ -5,6 +5,7 @@ init();
 // Function executed at startup
 function init() {
     FillTableSubcategories();
+    GetListCategoriesSelect()
 }
 
 // Function to Get List subcategories
@@ -22,6 +23,20 @@ function FillTableSubcategories() {
             { data : 'status'},
         ]
     });
+}
+
+function GetListCategoriesSelect() {
+    $.ajax({        
+        url:'../controller/CategoryController.php?operator=list_categories_select',
+        type:'GET',
+        beforeSend:function(){},
+        success:function(response){
+            data = $.parseJSON(response);
+            if (data.length > 0) {
+                console.log(data);
+            }
+        }
+    });  
 }
 
 /*

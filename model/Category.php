@@ -93,6 +93,23 @@ class Category{
 
         return false;
     }
+
+    // Function to Get the list of categories with select status
+    function GetListCategoriesSelect(){
+        $query = "SELECT * FROM category WHERE status_c = 1";
+        $result = $this->cnx->prepare($query);
+
+        if ($result->execute()) {
+            if ($result->rowCount() > 0) {
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+        }
+
+        return false;
+    }
 }
 
 ?>

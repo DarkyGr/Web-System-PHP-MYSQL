@@ -134,6 +134,20 @@ switch ($_REQUEST["operator"]) {
 
         echo $response;
     break;
+
+    case "list_categories_select":
+        $data = $cat->GetListCategoriesSelect();
+        if ($data) {
+            for ($i=0; $i < count($data); $i++) { 
+                $list[] = array(
+                    "0" => $data[$i]['id_category'],
+                    "1" => $data[$i]['name_c']
+                );
+            }
+
+            echo json_encode($list);
+        }        
+    break;
 }
 
 ?>
