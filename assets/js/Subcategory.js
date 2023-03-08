@@ -89,8 +89,12 @@ function GetSubcategoryById(id_subcategory, op) {
         type:'POST',
         beforeSend:function(){},
         success:function(response){
-            console.log(response);
-            // data = $.parseJSON(response);
+            data = $.parseJSON(response);
+            if (data.length > 0) {
+                if (op == "edit") {
+                    console.log(data);
+                }    
+            }            
 
             // if (data.length > 0) {
             //     if (op == "edit") {
