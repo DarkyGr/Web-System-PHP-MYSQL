@@ -6,6 +6,7 @@ $subcat = new Subcategory();
 
 switch ($_REQUEST["operator"]) {
 
+    //============================ LIST ================================
     case "list_subcategories":
         $data = $subcat->GetListSubcategories();
 
@@ -18,7 +19,7 @@ switch ($_REQUEST["operator"]) {
                                         <i class="icon-gear"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#edit_category" 
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#edit_subcategory" 
                                         onclick="GetSubcategoryById('.$data[$i]['id_subcategory'].",'edit'".');">
                                         <i class="icon-edit"></i> Edit</a>
                                         <a class="dropdown-item" 
@@ -54,7 +55,9 @@ switch ($_REQUEST["operator"]) {
 
         echo json_encode($results);
     break;
+    //==================================================================   
 
+    //============================ CREATE ================================
     case "new_subcategory":
         if (isset($_POST["name_sc"], $_POST["id_category"]) && !empty($_POST["name_sc"]) && !empty($_POST["id_category"])) {
             $name = $_POST["name_sc"];
@@ -71,24 +74,27 @@ switch ($_REQUEST["operator"]) {
         
         echo $response;
     break;  
+    //==================================================================   
 
-    /* 
+    //============================ EDIT ================================
     case "get_subcategory_by_id":
         if (isset($_POST["id_subcategory"]) && !empty($_POST["id_subcategory"])) {
-            $data = $cat->GetCategoryById($_POST["id_subcategory"]);
+            $data = $subcat->GetSubcategoryById($_POST["id_subcategory"]);
             
             if ($data) {
                 $list[] = array(
                     "id" => $data['id_subcategory'],
-                    "id_category" => $data['id_category'],
-                    "name" => $data['name_sc']                                        
+                    "name" => $data['name_sc'],
+                    "id_category" => $data['id_category']                    
                 );
 
                 echo json_encode($list);
             }
         }
-    break;      
+    break; 
+    //==================================================================   
 
+    /* 
     case "update_category":
         if (isset($_POST["name_c"], $_POST["description_c"], $_POST["id_subcategory"]) 
         && !empty($_POST["name_c"]) && !empty($_POST["description_c"]) && !empty($_POST["id_subcategory"])) {

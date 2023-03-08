@@ -1,27 +1,28 @@
 <!-- ========= | modal | ============-->
-<div class="modal fade text-xs-left" id="edit_category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-xs-left" id="edit_subcategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title" id="myModalLabel1"><i class="icon-road2"></i> Edit category</h4>
+				<h4 class="modal-title" id="myModalLabel1"><i class="icon-road2"></i> Edit Subcategory</h4>
 			</div>
 			<div class="modal-body">
-				<input type="hidden" id="edit_category_id">
+				<input type="hidden" id="edit_subcategory_id">
                 <div class="form-group">
-                    <label for="edit_category_name"> Category name: </label>
+                    <label for="edit_subcategory_name"> Subcategory name: </label>
                     <div class="position-relative has-icon-left">
-                        <input type="text" class="form-control" id="edit_category_name" autofocus>
+                        <input type="text" class="form-control" id="edit_subcategory_name" autofocus>
                         <div class="form-control-position"><i class="icon-bag"></i></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_category_description"> Description: </label>
+					<label for="edit_corresponding_category"> Category: </label>
                     <div class="position-relative has-icon-left">
-                        <textarea type="text" rows="7" placeholder="Type a short description" class="form-control" id="edit_category_description"></textarea>
-                        <div class="form-control-position"><i class="icon-file2"></i></div>
+                        <select id="edit_corresponding_category" class="form-control">
+							<div class="form-control-position"><i class="icon-bag"></i></div>
+						</select>
                     </div>
                 </div>
 			</div>

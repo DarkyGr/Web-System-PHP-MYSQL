@@ -9,6 +9,7 @@ class Subcategory{
         $this->cnx = Conexion::ConnectDB();
     }
 
+    //============================ LIST ================================
     // Function to Get the list of subcategories
     function GetListSubcategories(){
         $query = "SELECT sub.id_subcategory, sub.name_sc, ca.name_c AS category, sub.status_sc FROM category ca 
@@ -26,7 +27,9 @@ class Subcategory{
 
         return false;
     }
+    //==================================================================   
 
+    //============================ CREATE ================================
     // Function to Create Subcategory
     function NewSubcategory($name, $id_category){
         $query = "INSERT INTO subcategory(name_sc, id_category) VALUES (?, ?)";
@@ -39,9 +42,26 @@ class Subcategory{
         }
         
         return false;
-    }  
+    }
+    //==================================================================   
 
     
+    //============================ EDIT ================================
+    // Function to Get subcategory by ID 
+    function GetSubcategoryById($id_subcategory){
+        $query = "SELECT * FROM subcategory WHERE id_subcategory = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_subcategory);
+
+        if ($result->execute()) {
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return false;
+    }    
+    //==================================================================   
+    
+
     /*
     // Function to Update Category
     function UpdateCategory($id_category, $name, $description){
@@ -56,20 +76,7 @@ class Subcategory{
         }
 
         return false;
-    }
-
-    // Function to Get subcategory by ID (This is to edit subcategory)
-    function GetSubcategoryById($id_subcategory){
-        $query = "SELECT * FROM subcategory where id_subcategory = ?";
-        $result = $this->cnx->prepare($query);
-        $result->bindParam(1, $id_subcategory);
-
-        if ($result->execute()) {
-            return $result->fetch(PDO::FETCH_ASSOC);
-        }
-
-        return false;
-    } 
+    }   
 
     // Function to logically remove a category
     function DisableCategory($id_category){

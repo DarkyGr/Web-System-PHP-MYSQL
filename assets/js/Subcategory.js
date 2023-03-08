@@ -11,6 +11,7 @@ $('#btn_new_subcategory').on("click", function() {
     GetListCategoriesSelect();
 });
 
+//============================ LIST ================================
 // Function to Get List subcategories
 function FillTableSubcategories() {
     table = $('#table_subcategory').DataTable({
@@ -28,6 +29,7 @@ function FillTableSubcategories() {
     });
 }
 
+// Function to Get List subcategories select
 function GetListCategoriesSelect() {
     $.ajax({        
         url:'../controller/CategoryController.php?operator=list_categories_select',
@@ -45,7 +47,9 @@ function GetListCategoriesSelect() {
         }
     });  
 }
+//==================================================================   
 
+//============================ CREATE ================================
 // Function to new category
 function NewSubcategory() {
     cName = $('#subcategory_name').val();
@@ -73,31 +77,58 @@ function NewSubcategory() {
         }
     });    
 }
+//==================================================================   
 
-/*
+
+//============================ EDIT ================================
 // Function to Get Subcategory by ID
 function GetSubcategoryById(id_subcategory, op) {
     $.ajax({
         data: { "id_subcategory" : id_subcategory},
-        url:'../controller/CategoryController.php?operator=get_subcategory_by_id',
+        url:'../controller/SubcategoryController.php?operator=get_subcategory_by_id',
         type:'POST',
         beforeSend:function(){},
-        success:function(response){            
-            data = $.parseJSON(response);
+        success:function(response){
+            console.log(response);
+            // data = $.parseJSON(response);
 
-            if (op == "edit") {
-                $('#edit_category_id').val(data[0]['id']);
-                $('#edit_category_name').val(data[0]['name']);
-                $('#edit_category_description').val(data[0]['description']);
-            }else if (op == "disable") {                
-                AlertDisableCategory(data[0]['id'], data[0]['name']);
-            }else if (op == "enable") {
-                AlertEnableCategory(data[0]['id'], data[0]['name']);
-            }
+            // if (data.length > 0) {
+            //     if (op == "edit") {
+            //         $('#edit_subcategory_id').val(data[0]['id']);
+            //         $('#edit_subcategory_name').val(data[0]['name']);
+            //         GetListCategoriesSelectEdit(data[0]['id_subcategory']);
+            //     }else if (op == "disable") {                
+            //         AlertDisableCategory(data[0]['id'], data[0]['name']);
+            //     }else if (op == "enable") {
+            //         AlertEnableCategory(data[0]['id'], data[0]['name']);
+            //     }                
+            // }           
         }
     });    
 }
 
+// Function to Get List subcategories select to edit
+// function GetListCategoriesSelectEdit(id_subcategory) {
+//     $.ajax({
+//         data: {"id_subcategory": id_subcategory},
+//         url:'../controller/CategoryController.php?operator=list_categories_select_edit',
+//         type:'POST',
+//         beforeSend:function(){},
+//         success:function(response){
+//             data = $.parseJSON(response);
+//             if (data.length > 0) {
+//                 select = "";
+//                 $.each(data, function(key, value){
+//                     select = select + "<option value=" + value[0] +">" + value[1] + "</option>"
+//                 })
+//                 $('#edit_corresponding_category').html(select);
+//             }
+//         }
+//     });  
+// }
+//==================================================================   
+
+/*
 // Function to Clean Form of Login
 function CleanController() {
     $("#category-name").val("");
