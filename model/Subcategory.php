@@ -12,7 +12,7 @@ class Subcategory{
     // Function to Get the list of subcategories
     function GetListSubcategories(){
         $query = "SELECT sub.id_subcategory, sub.name_sc, ca.name_c AS category, sub.status_sc FROM category ca 
-        INNER JOIN subcategory sub ON ca.id_category = sub.id_subcategory";
+        INNER JOIN subcategory sub ON ca.id_category = sub.id_category";
         $result = $this->cnx->prepare($query);
 
         if ($result->execute()) {
@@ -25,37 +25,24 @@ class Subcategory{
         }
 
         return false;
-    }   
-
-    /*
-    // Function to Get subcategory by ID
-    function GetSubcategoryById($id_subcategory){
-        $query = "SELECT * FROM subcategory where id_subcategory = ?";
-        $result = $this->cnx->prepare($query);
-        $result->bindParam(1, $id_subcategory);
-
-        if ($result->execute()) {
-            return $result->fetch(PDO::FETCH_ASSOC);
-        }
-
-        return false;
     }
 
-    
-    // Function to Create category
-    function NewCategory($name, $description){
-        $query = "INSERT INTO category(name_c, description_c) VALUES (?, ?)";
+    // Function to Create Subcategory
+    function NewSubcategory($name, $id_category){
+        $query = "INSERT INTO subcategory(name_sc, id_category) VALUES (?, ?)";
         $result = $this->cnx->prepare($query);
         $result->bindParam(1, $name);
-        $result->bindParam(2, $description);
+        $result->bindParam(2, $id_category);
 
         if ($result->execute()) {
             return true;
         }
         
         return false;
-    }    
+    }  
 
+    
+    /*
     // Function to Update Category
     function UpdateCategory($id_category, $name, $description){
         $query = "UPDATE category SET name_c = ?, description_c = ? WHERE id_category = ?";
@@ -70,6 +57,19 @@ class Subcategory{
 
         return false;
     }
+
+    // Function to Get subcategory by ID (This is to edit subcategory)
+    function GetSubcategoryById($id_subcategory){
+        $query = "SELECT * FROM subcategory where id_subcategory = ?";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_subcategory);
+
+        if ($result->execute()) {
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return false;
+    } 
 
     // Function to logically remove a category
     function DisableCategory($id_category){

@@ -53,7 +53,24 @@ switch ($_REQUEST["operator"]) {
         }
 
         echo json_encode($results);
-    break;    
+    break;
+
+    case "new_subcategory":
+        if (isset($_POST["name_sc"], $_POST["id_category"]) && !empty($_POST["name_sc"]) && !empty($_POST["id_category"])) {
+            $name = $_POST["name_sc"];
+            $id_category = $_POST["id_category"];
+            
+            if ($subcat->NewSubcategory($name, $id_category)) {
+                $response = "success";
+            }else {
+                $response = "error";
+            }
+        }else {
+            $response = "required";
+        }
+        
+        echo $response;
+    break;  
 
     /* 
     case "get_subcategory_by_id":
@@ -70,25 +87,7 @@ switch ($_REQUEST["operator"]) {
                 echo json_encode($list);
             }
         }
-    break;
-
-    
-    case "new_category":
-        if (isset($_POST["name_c"], $_POST["description_c"]) && !empty($_POST["name_c"]) && !empty($_POST["description_c"])) {
-            $name = $_POST["name_c"];
-            $description = $_POST["description_c"];
-            
-            if ($cat->NewCategory($name, $description)) {
-                $response = "success";
-            }else {
-                $response = "error";
-            }
-        }else {
-            $response = "required";
-        }
-        
-        echo $response;
-    break;    
+    break;      
 
     case "update_category":
         if (isset($_POST["name_c"], $_POST["description_c"], $_POST["id_subcategory"]) 

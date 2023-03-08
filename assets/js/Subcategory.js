@@ -46,8 +46,35 @@ function GetListCategoriesSelect() {
     });  
 }
 
-/*
+// Function to new category
+function NewSubcategory() {
+    cName = $('#subcategory_name').val();
+    cIdCategory = $('#corresponding_category').val();
 
+    parameters = {
+        "name_sc":cName, "id_category":cIdCategory
+    }
+
+    $.ajax({
+        data:parameters,
+        url:'../controller/SubcategoryController.php?operator=new_subcategory',
+        type:'POST',
+        beforeSend:function(){},
+        success:function(response){
+            if (response == "success") {
+                table.ajax.reload();
+                $('#create_subcategory').modal('hide');
+                toastr.success("The subcategory has been added successfully", "Subcategory created successfully");
+            }else if (response == "required") {
+                toastr.warning("Fill in the fields", "Required");
+            }else{
+                toastr.danger("Please, refresh the page and fill in the fields", "Error");
+            }
+        }
+    });    
+}
+
+/*
 // Function to Get Subcategory by ID
 function GetSubcategoryById(id_subcategory, op) {
     $.ajax({
@@ -66,36 +93,6 @@ function GetSubcategoryById(id_subcategory, op) {
                 AlertDisableCategory(data[0]['id'], data[0]['name']);
             }else if (op == "enable") {
                 AlertEnableCategory(data[0]['id'], data[0]['name']);
-            }
-        }
-    });    
-}
-
-
-// Function to new category
-function NewCategory() {
-    cName = $('#category_name').val();
-    cDescription = $('#category_description').val();
-
-    parameters = {
-        "name_c":cName, "description_c":cDescription
-    }
-
-    $.ajax({
-        data:parameters,
-        url:'../controller/CategoryController.php?operator=new_category',
-        type:'POST',
-        beforeSend:function(){},
-        success:function(response){
-            if (response == "success") {
-                table.ajax.reload();
-                CleanController();
-                $('#create_category').modal('hide');
-                toastr.success("The category has been added successfully", "Category created successfully");
-            }else if (response == "required") {
-                toastr.warning("Fill in the fields", "Required");
-            }else{
-                toastr.danger("Please, refresh the page and fill in the fields", "Error");
             }
         }
     });    
