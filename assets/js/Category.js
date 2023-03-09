@@ -7,6 +7,7 @@ function init() {
     FillTableCategories();
 }
 
+//============================ LIST ================================
 // Function to Get List categories
 function FillTableCategories() {
     table = $('#table_category').DataTable({
@@ -23,7 +24,9 @@ function FillTableCategories() {
         ]
     });
 }
+//==================================================================   
 
+//============================ CREATE ================================
 // Function to new category
 function NewCategory() {
     cName = $('#category_name').val();
@@ -58,7 +61,9 @@ function CleanController() {
     $("#category-name").val("");
     $("#category-description").val("");
 }
+//==================================================================   
 
+//============================ EDIT ================================
 // Function to Get Category by ID
 function GetCategoryById(id_category, op) {
     $.ajax({
@@ -110,7 +115,9 @@ function UpdateCategory() {
         }
     });  
 }
+//==================================================================   
 
+//============================ DISABLE ================================
 // Function to Disable category
 function DisableCategory(id_category, category_name) {
     $.ajax({
@@ -149,7 +156,9 @@ function AlertDisableCategory(id_category, category_name) {
         }
     })
 }
+//==================================================================   
 
+//============================ ENABLE ================================
 // Function to Enable category
 function EnableCategory(id_category, category_name) {
     $.ajax({
@@ -188,3 +197,4 @@ function AlertEnableCategory(id_category, category_name) {
         }
     })
 }
+//==================================================================   

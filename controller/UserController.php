@@ -7,6 +7,7 @@ $use = new Users();
 
 switch ($_REQUEST["operator"]) {
 
+    //============================ LOGIN ================================
     case "sing_in":
         if (isset($_POST["email"], $_POST["key_u"]) && !empty($_POST["email"]) && !empty($_POST["key_u"])) {
             
@@ -23,12 +24,13 @@ switch ($_REQUEST["operator"]) {
         }
 
         echo $response;
-        break;
+    break;
 
-        case "sing_out":
-            unset($_SESSION["user"]);
-            header("location:../");
-            break;
+    case "sing_out":
+        unset($_SESSION["user"]);
+        header("location:../");
+    break;
+    //=================================================================   
 }
 
 ?>

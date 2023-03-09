@@ -6,6 +6,7 @@ $cat = new Category();
 
 switch ($_REQUEST["operator"]) {
 
+    //============================ LIST ================================
     case "list_categories":
         $data = $cat->GetListCategories();
 
@@ -54,7 +55,9 @@ switch ($_REQUEST["operator"]) {
 
         echo json_encode($results);
     break;
+    //==================================================================   
 
+    //============================ CREATE ================================
     case "new_category":
         if (isset($_POST["name_c"], $_POST["description_c"]) && !empty($_POST["name_c"]) && !empty($_POST["description_c"])) {
             $name = $_POST["name_c"];
@@ -71,7 +74,9 @@ switch ($_REQUEST["operator"]) {
         
         echo $response;
     break;
+    //==================================================================   
 
+    //============================ EDIT ================================
     case "get_category_by_id":
         if (isset($_POST["id_category"]) && !empty($_POST["id_category"])) {
             $data = $cat->GetCategoryById($_POST["id_category"]);
@@ -106,7 +111,9 @@ switch ($_REQUEST["operator"]) {
         
         echo $response;
     break;
+    //==================================================================   
 
+    //============================ DISABLE ================================
     case "disable_category":
         if (isset($_POST["id_category"]) && !empty($_POST["id_category"])) {
             if ($cat->DisableCategory($_POST["id_category"])) {
@@ -120,7 +127,9 @@ switch ($_REQUEST["operator"]) {
 
         echo $response;
     break;
+    //==================================================================   
 
+    //============================ ENABLE ================================
     case "enable_category":
         if (isset($_POST["id_category"]) && !empty($_POST["id_category"])) {
             if ($cat->EnableCategory($_POST["id_category"])) {
@@ -134,7 +143,9 @@ switch ($_REQUEST["operator"]) {
 
         echo $response;
     break;
+    //==================================================================   
 
+    //============================ TO SUBCATEGORY ================================
     case "list_categories_select":
         $data = $cat->GetListCategoriesSelect();
         if ($data) {
@@ -162,9 +173,9 @@ switch ($_REQUEST["operator"]) {
 
                 echo json_encode($list);
             }        
-        }
-        
+        }        
     break;
+    //==================================================================   
 }
 
 ?>

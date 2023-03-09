@@ -9,6 +9,7 @@ class users {
         $this->cnx = Conexion::ConnectDB();
     }
 
+    //============================ LOGIN ================================
     // Function for Add user
     function AddUser($document_num, $name, $last_name, $email, $key){
         $query = "INSERT INTO users(document_num, name_u, last_name, email, key_u) VALUES (?, ?, ?, ?, ?)";
@@ -41,6 +42,7 @@ class users {
 
         return false;
     }
+    //=================================================================   
 }
 
 

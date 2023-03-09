@@ -9,6 +9,7 @@ class Category{
         $this->cnx = Conexion::ConnectDB();
     }
 
+    //============================ LIST ================================
     // Function to Get the list of categories
     function GetListCategories(){
         $query = "SELECT * FROM category";
@@ -25,7 +26,9 @@ class Category{
 
         return false;
     }
+    //=================================================================   
 
+    //============================ CREATE ================================
     // Function to Create category
     function NewCategory($name, $description){
         $query = "INSERT INTO category(name_c, description_c) VALUES (?, ?)";
@@ -39,7 +42,9 @@ class Category{
         
         return false;
     }
+    //==================================================================   
 
+    //============================ EDIT ================================
     // Function to Get category by ID
     function GetCategoryById($id_category){
         $query = "SELECT * FROM category where id_category = ?";
@@ -67,7 +72,9 @@ class Category{
 
         return false;
     }
+    //==================================================================   
 
+    //============================ DISABLE ================================
     // Function to logically remove a category
     function DisableCategory($id_category){
         $query = "UPDATE category SET status_c = 0 WHERE id_category = ?";
@@ -80,7 +87,9 @@ class Category{
 
         return false;
     }
+    //==================================================================   
 
+    //============================ ENABLE ================================
     // Function to Enable category
     function EnableCategory($id_category){
         $query = "UPDATE category SET status_c = 1 WHERE id_category = ?";
@@ -93,7 +102,9 @@ class Category{
 
         return false;
     }
+    //==================================================================   
 
+    //============================ TO SUBCATEGORY ================================
     // Function to Get the list of categories with select status
     function GetListCategoriesSelect(){
         $query = "SELECT * FROM category WHERE status_c = 1";
@@ -131,6 +142,7 @@ class Category{
 
         return false;
     }
+    //==================================================================   
 }
 
 ?>

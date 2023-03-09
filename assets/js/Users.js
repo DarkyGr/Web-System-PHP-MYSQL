@@ -1,3 +1,4 @@
+//============================ LOGIN ================================
 // Function for Validate user in Login
 function ValidateUser() {
     email = $('#user-email').val();
@@ -33,3 +34,4 @@ function CleanController() {
     $("#user-email").val("");
     $("#user-password").val("");
 }
+//=================================================================   
