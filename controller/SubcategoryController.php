@@ -92,17 +92,15 @@ switch ($_REQUEST["operator"]) {
             }
         }
     break; 
-    //==================================================================   
 
-    /* 
-    case "update_category":
-        if (isset($_POST["name_c"], $_POST["description_c"], $_POST["id_subcategory"]) 
-        && !empty($_POST["name_c"]) && !empty($_POST["description_c"]) && !empty($_POST["id_subcategory"])) {
+    case "update_subcategory":
+        if (isset($_POST["name_sc"], $_POST["id_subcategory"], $_POST["id_category"]) 
+        && !empty($_POST["name_sc"]) && !empty($_POST["id_subcategory"]) && !empty($_POST["id_category"])) {            
+            $name = $_POST["name_sc"];
+            $id_category = $_POST["id_category"];
             $id_subcategory = $_POST["id_subcategory"];
-            $name = $_POST["name_c"];
-            $description = $_POST["description_c"];
             
-            if ($cat->UpdateCategory($id_subcategory, $name, $description)) {
+            if ($subcat->UpdateSubategory($name, $id_category, $id_subcategory)) {
                 $response = "success";
             }else {
                 $response = "error";
@@ -113,7 +111,9 @@ switch ($_REQUEST["operator"]) {
         
         echo $response;
     break;
+    //==================================================================   
 
+    /* 
     case "disable_category":
         if (isset($_POST["id_subcategory"]) && !empty($_POST["id_subcategory"])) {
             if ($cat->DisableCategory($_POST["id_subcategory"])) {

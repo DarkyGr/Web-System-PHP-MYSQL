@@ -59,17 +59,14 @@ class Subcategory{
 
         return false;
     }    
-    //==================================================================   
-    
 
-    /*
     // Function to Update Category
-    function UpdateCategory($id_category, $name, $description){
-        $query = "UPDATE category SET name_c = ?, description_c = ? WHERE id_category = ?";
+    function UpdateSubategory($name, $id_category, $id_subcategory){
+        $query = "UPDATE subcategory SET name_sc = ?, id_category = ? WHERE id_subcategory = ?";
         $result = $this->cnx->prepare($query);
         $result->bindParam(1, $name);
-        $result->bindParam(2, $description);
-        $result->bindParam(3, $id_category);
+        $result->bindParam(2, $id_category);
+        $result->bindParam(3, $id_subcategory);
 
         if ($result->execute()) {
             return true;
@@ -77,7 +74,10 @@ class Subcategory{
 
         return false;
     }   
+    //==================================================================   
+    
 
+    /*
     // Function to logically remove a category
     function DisableCategory($id_category){
         $query = "UPDATE category SET status_c = 0 WHERE id_category = ?";

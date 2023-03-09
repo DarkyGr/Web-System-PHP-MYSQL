@@ -91,8 +91,7 @@ function GetSubcategoryById(id_subcategory, op) {
         success:function(response){
             data = $.parseJSON(response);
             if (data.length > 0) {
-                if (op == "edit") {
-                    // console.log(data);
+                if (op == "edit") {                    
                     $('#edit_subcategory_id').val(data[0]['id_subcategory']);
                     $('#edit_subcategory_name').val(data[0]['name']);
                     GetListCategoriesSelectEdit(data[0]['id_subcategory']);
@@ -121,35 +120,27 @@ function GetListCategoriesSelectEdit(id_subcategory) {
         }
     });  
 }
-//==================================================================   
-
-/*
-// Function to Clean Form of Login
-function CleanController() {
-    $("#category-name").val("");
-    $("#category-description").val("");
-}
 
 // Function to save the changes of editing a category
-function UpdateCategory() {    
-    idCategory = $('#edit_category_id').val();
-    cName = $('#edit_category_name').val();
-    cDescription = $('#edit_category_description').val();
+function UpdateSubcategory() {    
+    idSubcategory = $('#edit_subcategory_id').val();
+    subName = $('#edit_subcategory_name').val();
+    subIdCategory = $('#edit_corresponding_category').val();
 
     parameters = {
-       "id_category":idCategory, "name_c":cName, "description_c":cDescription
+        "name_sc":subName, "id_category":subIdCategory, "id_subcategory":idSubcategory
     }
 
     $.ajax({
         data:parameters,
-        url:'../controller/CategoryController.php?operator=update_category',
+        url:'../controller/SubcategoryController.php?operator=update_subcategory',
         type:'POST',
         beforeSend:function(){},
         success:function(response){            
             if (response == "success") {
                 table.ajax.reload();                
-                $('#edit_category').modal('hide');
-                toastr.success("The data has been saved successfully", "Category edited successfully");
+                $('#edit_subcategory').modal('hide');
+                toastr.success("The data has been saved successfully", "Subcategory edited successfully");
             }else if (response == "required") {
                 toastr.warning("Fill in the fields", "Required");
             }else{
@@ -157,6 +148,14 @@ function UpdateCategory() {
             }
         }
     });  
+}
+//==================================================================   
+
+/*
+// Function to Clean Form of Login
+function CleanController() {
+    $("#category-name").val("");
+    $("#category-description").val("");
 }
 
 // Function to Disable category
