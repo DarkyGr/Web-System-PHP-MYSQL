@@ -83,7 +83,7 @@ switch ($_REQUEST["operator"]) {
             
             if ($data) {
                 $list[] = array(
-                    "id" => $data['id_subcategory'],
+                    "id_subcategory" => $data['id_subcategory'],
                     "name" => $data['name_sc'],
                     "id_category" => $data['id_category']                    
                 );

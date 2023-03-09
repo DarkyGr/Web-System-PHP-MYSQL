@@ -92,14 +92,15 @@ function GetSubcategoryById(id_subcategory, op) {
             data = $.parseJSON(response);
             if (data.length > 0) {
                 if (op == "edit") {
-                    console.log(data);
+                    // console.log(data);
+                    $('#edit_subcategory_id').val(data[0]['id_subcategory']);
+                    $('#edit_subcategory_name').val(data[0]['name']);
                 }    
             }            
 
             // if (data.length > 0) {
             //     if (op == "edit") {
-            //         $('#edit_subcategory_id').val(data[0]['id']);
-            //         $('#edit_subcategory_name').val(data[0]['name']);
+            
             //         GetListCategoriesSelectEdit(data[0]['id_subcategory']);
             //     }else if (op == "disable") {                
             //         AlertDisableCategory(data[0]['id'], data[0]['name']);
