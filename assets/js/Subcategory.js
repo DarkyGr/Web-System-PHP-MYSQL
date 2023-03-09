@@ -95,42 +95,32 @@ function GetSubcategoryById(id_subcategory, op) {
                     // console.log(data);
                     $('#edit_subcategory_id').val(data[0]['id_subcategory']);
                     $('#edit_subcategory_name').val(data[0]['name']);
+                    GetListCategoriesSelectEdit(data[0]['id_subcategory']);
                 }    
-            }            
-
-            // if (data.length > 0) {
-            //     if (op == "edit") {
-            
-            //         GetListCategoriesSelectEdit(data[0]['id_subcategory']);
-            //     }else if (op == "disable") {                
-            //         AlertDisableCategory(data[0]['id'], data[0]['name']);
-            //     }else if (op == "enable") {
-            //         AlertEnableCategory(data[0]['id'], data[0]['name']);
-            //     }                
-            // }           
+            }        
         }
     });    
 }
 
 // Function to Get List subcategories select to edit
-// function GetListCategoriesSelectEdit(id_subcategory) {
-//     $.ajax({
-//         data: {"id_subcategory": id_subcategory},
-//         url:'../controller/CategoryController.php?operator=list_categories_select_edit',
-//         type:'POST',
-//         beforeSend:function(){},
-//         success:function(response){
-//             data = $.parseJSON(response);
-//             if (data.length > 0) {
-//                 select = "";
-//                 $.each(data, function(key, value){
-//                     select = select + "<option value=" + value[0] +">" + value[1] + "</option>"
-//                 })
-//                 $('#edit_corresponding_category').html(select);
-//             }
-//         }
-//     });  
-// }
+function GetListCategoriesSelectEdit(id_subcategory) {
+    $.ajax({
+        data: {"id_subcategory": id_subcategory},
+        url:'../controller/CategoryController.php?operator=list_categories_select_edit',
+        type:'POST',
+        beforeSend:function(){},
+        success:function(response){
+            data = $.parseJSON(response);
+            if (data.length > 0) {
+                select = "";
+                $.each(data, function(key, value){
+                    select = select + "<option value=" + value[0] +">" + value[1] + "</option>"
+                })
+                $('#edit_corresponding_category').html(select);
+            }
+        }
+    });  
+}
 //==================================================================   
 
 /*

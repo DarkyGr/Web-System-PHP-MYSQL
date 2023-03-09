@@ -19,9 +19,8 @@
                 <div class="form-group">
                     <label for="corresponding_category"> Category: </label>
                     <div class="position-relative has-icon-left">
-                        <select id="corresponding_category" class="form-control">
-							<div class="form-control-position"><i class="icon-bag"></i></div>
-						</select>
+                        <select id="corresponding_category" class="form-control"></select>
+						<div class="form-control-position"><i class="icon-list"></i></div>						
                     </div>
                 </div>
 			</div>

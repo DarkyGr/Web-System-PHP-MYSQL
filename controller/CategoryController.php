@@ -149,22 +149,22 @@ switch ($_REQUEST["operator"]) {
         }        
     break;
 
-    // case "list_categories_select_edit":
-    //     if (isset($_POST["id_subcategory"]) && !empty($_POST["id_subcategory"])) {
-    //         $data = $cat->GetListCategoriesSelectEdit($_POST["id_subcategory"]);
-    //         if ($data) {
-    //             for ($i=0; $i < count($data); $i++) { 
-    //                 $list[] = array(
-    //                     "0" => $data[$i]['id_category'],
-    //                     "1" => $data[$i]['name_c']
-    //                 );
-    //             }
+    case "list_categories_select_edit":
+        if (isset($_POST["id_subcategory"]) && !empty($_POST["id_subcategory"])) {
+            $data = $cat->GetListCategoriesSelectEdit($_POST["id_subcategory"]);
+            if ($data) {
+                for ($i=0; $i < count($data); $i++) { 
+                    $list[] = array(
+                        "0" => $data[$i]['id_category'],
+                        "1" => $data[$i]['name_c']
+                    );
+                }
 
-    //             echo json_encode($list);
-    //         }        
-    //     }
+                echo json_encode($list);
+            }        
+        }
         
-    // break;
+    break;
 }
 
 ?>

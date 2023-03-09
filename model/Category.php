@@ -112,24 +112,25 @@ class Category{
     }
 
     // Function to Get the list of categories with select status
-    // function GetListCategoriesSelectEdit($id_subcategory){
-    //     $query = "SELECT cat.id_category, cat.name_c FROM category cat
-    //     INNER JOIN subcategory sub ON cat.id_category = sub.id_category WHERE sub.id_subcategory = ?
-    //     UNION SELECT id_category, name_c FROM category WHERE status_c = 1;";
-    //     $result = $this->cnx->prepare($query);
-    //     $result->bindParam(1, $id_subcategory);
+    function GetListCategoriesSelectEdit($id_subcategory){
+        $query = "SELECT cat.id_category, cat.name_c FROM category cat
+        INNER JOIN subcategory sub ON cat.id_category = sub.id_category 
+        WHERE sub.id_subcategory = ? UNION SELECT id_category, name_c FROM 
+        category WHERE status_c = 1";
+        $result = $this->cnx->prepare($query);
+        $result->bindParam(1, $id_subcategory);
 
-    //     if ($result->execute()) {
-    //         if ($result->rowCount() > 0) {
-    //             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    //                 $data[] = $row;
-    //             }
-    //             return $data;
-    //         }
-    //     }
+        if ($result->execute()) {
+            if ($result->rowCount() > 0) {
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+        }
 
-    //     return false;
-    // }
+        return false;
+    }
 }
 
 ?>
